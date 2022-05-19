@@ -1,0 +1,95 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.2
+-- Dumped by pg_dump version 12.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: Users; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Users" (
+    "Guid" uuid NOT NULL,
+    "Login" text NOT NULL,
+    "Password" text NOT NULL,
+    "Name" text NOT NULL,
+    "Gender" integer NOT NULL,
+    "Birthday" timestamp with time zone,
+    "Admin" boolean NOT NULL,
+    "CreatedOn" timestamp with time zone NOT NULL,
+    "CreatedBy" text NOT NULL,
+    "ModifiedOn" timestamp with time zone,
+    "ModifiedBy" text,
+    "RevokedOn" timestamp with time zone,
+    "RevokedBy" text
+);
+
+
+ALTER TABLE public."Users" OWNER TO postgres;
+
+--
+-- Name: __EFMigrationsHistory; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public."__EFMigrationsHistory" OWNER TO postgres;
+
+--
+-- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Users" ("Guid", "Login", "Password", "Name", "Gender", "Birthday", "Admin", "CreatedOn", "CreatedBy", "ModifiedOn", "ModifiedBy", "RevokedOn", "RevokedBy") FROM stdin;
+6f92c2fe-8d24-4566-8135-4c8161667856	admin	AIzxQd3t3uPfQeE2rWRHBUIKv22Aa2P1ggRxcImZ8soj8BoUJm0X0Dcvu9NLa+OdPA==	Alex	1	2001-04-24 01:00:00+04	t	2020-05-16 00:00:00+03	admin	\N	\N	\N	\N
+\.
+
+
+--
+-- Data for Name: __EFMigrationsHistory; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin;
+20220515101835_InitialDatabase	6.0.5
+\.
+
+
+--
+-- Name: Users PK_Users; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Users"
+    ADD CONSTRAINT "PK_Users" PRIMARY KEY ("Guid");
+
+
+--
+-- Name: __EFMigrationsHistory PK___EFMigrationsHistory; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."__EFMigrationsHistory"
+    ADD CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId");
+
+
+--
+-- PostgreSQL database dump complete
+--
+
